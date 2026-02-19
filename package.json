@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npx @tailwindcss/cli -i ./public/input.css -o ./public/output.css --watch\" \"node index.js\""
+    "dev": "concurrently \"npx @tailwindcss/cli -i ./src/input.css -o ./public/styles.css --watch\" \"node index.js\""
   },
   "keywords": [],
   "author": "",
