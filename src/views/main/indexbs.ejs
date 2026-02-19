@@ -6,8 +6,8 @@
     <title>With Bootstrap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<body class="bootstrap-page">
-    <div id="nav-header"></div>
+<body>
+    <div id="header" class="bootstrap-nav-header"></div>
     <div class="d-flex justify-content-center align-items-center min-vh-100">
      <div class="text-center">
         <h1>Welcome to the page</h1>
@@ -26,7 +26,7 @@
     var num = 0;
     fetch('/header')
       .then(res => res.text())
-      .then(html => document.getElementById('nav-header').innerHTML = html);
+      .then(html => document.getElementById('header').innerHTML = html);
 
     function handleClick() {
         num++;

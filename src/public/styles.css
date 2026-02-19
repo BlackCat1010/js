@@ -299,6 +299,16 @@
     }
   }
 }
+#counterButton {
+  border: 5px solid red;
+}
+.tailwind-nav-header #bg-header {
+  height: 40px;
+  background-image: url('/img/why-do-we-use-tailwind.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 @property --tw-border-style {
   syntax: "*";
   inherits: false;

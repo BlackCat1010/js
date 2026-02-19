@@ -6,8 +6,8 @@
     <title>Test Tailwind</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
-<body class="tailwind-page">
-    <div id="nav-header"></div>
+<body>
+    <div id="header" class="tailwind-nav-header"></div>
     <div class="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-8">
         <h1 class="text-4xl font-bold text-blue-600 mb-4">Welcome to the page</h1>
         <button id="counterButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 min-w-24" onclick=handleClick()>Click Me</button>
@@ -25,7 +25,7 @@
     var num = 0;
     fetch('/header')
       .then(res => res.text())
-      .then(html => document.getElementById('nav-header').innerHTML = html);
+      .then(html => document.getElementById('header').innerHTML = html);
     function handleClick() {
         num++;
         document.getElementById("counterButton").textContent = num;
