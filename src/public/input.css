@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+
+#tailwind-page .nav-header {
+    background-image: url('/img/why-do-we-use-tailwind.webp');
+}
+
+#bootstrap-page .nav-header {
+    background-image: url('/img/bootstrap-logo-vector.png');
+}

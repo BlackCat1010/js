@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Tailwind</title>
+    <link rel="stylesheet" href="/output.css">
+</head>
+<body class="tailwind-page">
+    <div id="nav-header"></div>
+    <div class="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-8">
+        <h1 class="text-4xl font-bold text-blue-600 mb-4">Welcome to the page</h1>
+        <button id="counterButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 min-w-24" onclick=handleClick()>Click Me</button>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-2">Placeholder Header</h2>
+        <p class="text-gray-700 mb-4">This is a placeholder paragraph.</p>
+        <form class="flex gap-2">
+            <input type="text" placeholder="Enter text here" class="border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Search</button>
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    var num = 0;
+    fetch('/header')
+      .then(res => res.text())
+      .then(html => document.getElementById('nav-header').innerHTML = html);
+    function handleClick() {
+        num++;
+        document.getElementById("counterButton").textContent = num;
+    }
+</script>

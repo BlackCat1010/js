@@ -1,18 +1,25 @@
 import express from 'express';
-express.USER = process.env.USER;
+import path from 'path';
+import { fileURLToPath } from 'url';
+import routes from './src/routes/routes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __rootpath = path.dirname(__filename);
 
 const app = express();
 const port = 3000;
 
-console.log("Hello, World! You are running on " + process.platform);
-console.log(process.env.USER);
+app.use(express.static('src/public'));
 
-app.get('/', (req, res) => {
-    res.sendFile('index.html', { root: './view' });
-});
+app.get(Object.keys(routes), (req, res) => {
+  const filePath = routes[req.path];
+  const absolutefilePath = path.join(__rootpath, 'src/views', filePath);
 
-app.get('/bs', (req, res) => {
-    res.sendFile('indexbs.html', { root: './view' });
+  res.sendFile(absolutefilePath, (err) => {
+    if (err) {
+      res.status(404).send('Page not found');
+    }
+  });
 });
 
 app.listen(port, () => {

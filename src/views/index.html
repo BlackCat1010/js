@@ -6,12 +6,9 @@
     <title>Bare metal</title>
 </head>
 <body>
+    <div id="nav-header"></div>
     <h1>Welcome to the page</h1>
-    <script>
-        var hello = "Hello World";
-        console.log(hello);
-    </script>
-    <button>Click Me</button>
+    <button id="counterButton" onclick=handleClick() style="min-width: 100px;">Click Me</button>
     <h2>Placeholder Header</h2>
     <p>This is a placeholder paragraph.</p>
     <form>
@@ -20,3 +17,15 @@
     </form>
 </body>
 </html>
+
+<script>
+    fetch('/header')
+      .then(res => res.text())
+      .then(html => document.getElementById('nav-header').innerHTML = html);
+
+    var num = 0;
+    function handleClick() {
+        num++;
+        document.getElementById("counterButton").textContent = num;
+    }
+</script>
