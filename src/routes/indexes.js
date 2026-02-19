@@ -18,8 +18,4 @@ router.get('/header', (req, res) => {
   res.render("common/header");
 });
 
-router.use((req, res) => {
-  res.status(404).render("main/index");
-});
-
 export { router as indexRouter };

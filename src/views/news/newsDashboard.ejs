@@ -11,3 +11,9 @@
     <p>This is the news dashboard page. It provides an overview of recent news articles.</p>
 </body>
 </html>
+
+<script>
+    fetch('/header')
+      .then(res => res.text())
+      .then(html => document.getElementById('nav-header').innerHTML = html);
+</script>

@@ -7,11 +7,13 @@
 </head>
 <body>
     <div id="nav-header"></div>
-    <h1>Article ID: <%= articleId %></h1>
+    <h1>Article ID: <%= locals.articleId %></h1>
     <p>This is the content of the news article. It provides detailed information about the news topic.</p>
 </body>
 </html>
 
 <script>
-    const articleId = "<%= articleId %>";
+    fetch('/header')
+      .then(res => res.text())
+      .then(html => document.getElementById('nav-header').innerHTML = html);
 </script>

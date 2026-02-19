@@ -15,6 +15,8 @@ app.use(session({
   cookie:{maxAge:60000}
 }))
 
+app.use(urlLogger);
+
 app.set('views', path.join(process.cwd(), 'src', 'views'));
 app.set('view engine', 'ejs');
 
@@ -27,3 +29,7 @@ app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
 
+function urlLogger(req, res, next) {
+  console.log('Requested URL:', req.originalUrl);
+  next();
+}
